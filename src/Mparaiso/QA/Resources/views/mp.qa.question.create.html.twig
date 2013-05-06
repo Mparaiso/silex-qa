@@ -1,0 +1,13 @@
+{% extends app['mp.qa.twig.layout'] %}
+{% block mp_qa_content %}
+    <h3>Ask a question</h3>
+    <hr>
+    <div class="">
+        <form action="" method="POST"
+              name='{{ form.vars.name }}' {{ form_enctype(form) }}>
+
+            {{ form_widget(form) }}
+            <input type="submit" value="Ask">
+        </form>
+    </div>
+{% endblock %}

@@ -9,6 +9,22 @@ use Silex\ControllerCollection;
 
 class DefaultController implements ControllerProviderInterface
 {
+    function questionCreate(Request $req, Application $app)
+    {
+        $question = new $app['mp.qa.entity.question']();
+        $type = new $app['mp.qa.form.question']();
+        $form = $app['form.factory']->create($type, $question);
+        if ("POST" === $req->getMethod()) {
+            $form->bind($req);
+            if ($form->isValid) {
+                // persist question
+            }
+        }
+        return $app['twig']->render('mp.qa.question.create.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
     function userProfile(Request $req, Application $app, $_format, $id)
     {
         $user = $app['mp.qa.service.user']->find($id);
@@ -84,6 +100,8 @@ class DefaultController implements ControllerProviderInterface
             ->value('_format', 'html')
             ->assert('id', '\d+')
             ->bind('mp_qa_user_read');
+        $controllers->get('/question/ask', array($this, "questionCreate"))
+            ->bind('mp_qa_question_create');
         $controllers->get('/question/latest.{_format}', array($this, "recentQuestions"))
             ->value('_format', 'html')
             ->bind('mp_qa_question_latest');
