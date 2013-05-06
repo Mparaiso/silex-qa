@@ -1,0 +1,29 @@
+Mparaiso\QA\Entity\Question:
+  type: entity
+  tableName: mp_qa_questions
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: auto
+    title:
+      type: string
+    body:
+      type: text
+    createdAt:
+      type: datetime
+    updatedAt:
+      type: datetime
+  oneToMany:
+    interests:
+      targetEntity: Mparaiso\QA\Entity\Interest
+      mappedBy: question
+    answers:
+      targetEntity: Mparaiso\QA\Entity\Answer
+      mappedBy: question
+  manyToOne:
+    user:
+      targetEntity: Mparaiso\QA\Entity\User
+      inversedBy: questions
+

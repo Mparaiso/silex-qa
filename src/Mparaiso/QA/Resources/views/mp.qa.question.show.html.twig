@@ -1,0 +1,18 @@
+{% extends app['mp.qa.twig.layout'] %}
+{% block mp_qa_content %}
+    <h3 class="row">
+        <span class="span1 score" title='Popularity'>{{ question.interests|length }} </span>
+        <span class="span10 ">{{ question.title }}</span>
+    </h3>
+    <p class="muted">
+        <small>Posted by <a href="{{ path('mp_qa_user_read',{id:question.user.id}) }}">{{ question.user.nickname }}</a> on {{ question.createdAt|date('Y-m-d') }}</small>
+    </p>
+    <p>
+        {{ question.body }}
+    </p>
+    <hr>
+    {% for a in question.answers %}
+        {% include 'mp.qa.answer.row.html.twig' with {answer:a} %}
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,16 @@
+<h4 class="row ">
+    <span class="span1 score" title='Popularity'>{{ question.interests|length }} </span>
+<span class="span10">
+                        <a href="{{ path('mp_qa_question_show',{id:question.id,title:question.title|slice(0,100)|trim|slugify}) }}">
+                            {{ question.title }}
+                            <br>
+                            <small title='summary'>
+                                {{ question.body|slice(0,100) ~ "..." }}
+                            </small>
+                        </a>
+                        <br/>
+                          <small>Posted by <a href="{{ path('mp_qa_user_read',{id:question.user.id}) }}">
+                              {{ question.user.nickname }}
+                          </a> on {{ question.createdAt|date }}</small>
+                            </span>
+</h4>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    {% block mp_qa_meta %}
+        <meta charset="UTF-8">
+    {% endblock %}
+    <title>{% block mp_qa_meta_title app['mp.qa.params.title'] %}</title>
+    <link rel="shortcut icon" href="{{ app.request.baseUrl }}/favicon.ico">
+    <link rel="stylesheet" href="{{ app.request.baseUrl }}/static/vendor/bootstrap/css/bootstrap.min.css">
+    <style type="text/css">
+        body {
+            font-size: 100%;
+        }
+
+        .score {
+            font-size: 135%;
+            font-weight: bold;
+            text-align: center;
+            background-color: #e1e6e3;
+            border: 1px solid #ced3d0;
+            height: 100%;
+        }
+
+        .question {
+            font-size: 115%;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="{{ app.request.baseUrl }}/">{{ app['mp.qa.params.title'] }}</a>
+            {% include 'mp.qa.nav.html.twig' %}
+        </div>
+    </div>
+</div>
+<div class="container">
+    {% block mp_qa_title %}
+    {% endblock %}
+    {% block flash %}
+        {% include 'crud/includes/flash.html.twig' %}
+    {% endblock %}
+    {% block mp_qa_submenu %}
+        {#<div class="">#}
+        {#<ul class="nav nav-tabs">#}
+        {#<li><a href="{{ path('mp_qa_question_popular') }}">Popular Questions</a></li>#}
+        {#</ul>#}
+        {#</div>#}
+    {% endblock %}
+    {% block mp_qa_content %}
+    {% endblock %}
+</div>
+</body>
+</html>

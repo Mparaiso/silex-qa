@@ -1,0 +1,30 @@
+Mparaiso\QA\Entity\User:
+  type: entity
+  tableName: mp_qa_users
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: auto
+    nickname:
+      type: string
+    email:
+      type: string
+    createdAt:
+      type: datetime
+    updatedAt:
+      type: datetime
+  oneToMany:
+    interests:
+      targetEntity: Mparaiso\QA\Entity\Interest
+      mappedBy: user
+    questions:
+      targetEntity: Mparaiso\QA\Entity\Question
+      mappedBy: user
+    answers:
+      targetEntity: Mparaiso\QA\Entity\Answer
+      mappedBy: user
+    relevancies:
+      targetEntity: Mparaiso\QA\Entity\Relevancy
+      mappedBy: user

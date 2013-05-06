@@ -1,0 +1,11 @@
+<div class="row">
+    <div class=" span1 score" title='relevancy'>{{ answer.relevancy }} </div>
+    <div class="span9">
+        <div>{{ answer.body }}</div>
+        <div class=" muted">
+            <small>Posted by <a href="{{ path('mp_qa_user_read',{id:answer.user.id}) }}">
+                {{ answer.user.nickname }}
+            </a> on {{ answer.createdAt|date }}</small>
+        </div>
+    </div>
+</div>

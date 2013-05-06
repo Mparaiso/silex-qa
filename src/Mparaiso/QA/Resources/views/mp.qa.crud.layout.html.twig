@@ -1,0 +1,31 @@
+{% extends app['mp.qa.twig.layout'] %}
+{% block mp_qa_title %}
+{% endblock %}
+{% block mp_qa_submenu %}
+    <div class="row">
+        <ul class="inline nav nav-tabs">
+            {% set tab_path = app.request.uri %}
+            <li>
+                <a href="{{ path('mp_crud_question_index') }}">Question</a>
+            </li>
+            <li>
+                <a href="{{ path('mp_crud_answer_index') }}">Answer</a>
+            </li>
+            <li>
+                <a href="{{ path('mp_crud_user_index') }}">User</a>
+            </li>
+            <li>
+                <a href="{{ path('mp_crud_interest_index') }}">Interest</a>
+            </li>
+            <li>
+                <a href="{{ path('mp_crud_relevancy_index') }}">Relevancy</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+{% block mp_qa_content %}
+    <div class="row">
+        {% block mp_crud_content %}
+        {% endblock %}
+    </div>
+{% endblock %}

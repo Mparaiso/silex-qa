@@ -1,0 +1,18 @@
+Mparaiso\QA\Entity\Interest:
+  type: entity
+  tableName: mp_qa_interests
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: auto
+    createdAt:
+      type: datetime
+  manyToOne:
+    question:
+      targetEntity: Mparaiso\QA\Entity\Question
+      inversedBy: interests
+    user:
+      targetEntity: Mparaiso\QA\Entity\User
+      inversedBy: interests

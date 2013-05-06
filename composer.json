@@ -1,0 +1,18 @@
+{
+    "require":{
+        "silex/silex":"*",
+        "symfony/symfony":"2.2.*",
+        "twig/twig":"*",
+        "monolog/monolog":"*",
+        "doctrine/orm":"*",
+        "mparaiso/doctrineormserviceprovider":"*@dev",
+        "mparaiso/crudserviceprovider":"@dev",
+        "mparaiso/consoleserviceprovider":"@dev",
+        "mparaiso/routeconfigserviceprovider":"@dev"
+    },
+    "autoload":{
+        "psr-0":{
+            "":["src", "app"]
+        }
+    }
+}

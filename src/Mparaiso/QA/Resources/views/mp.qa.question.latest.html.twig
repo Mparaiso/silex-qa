@@ -1,0 +1,16 @@
+{% extends app['mp.qa.twig.layout'] %}
+{% block mp_qa_content %}
+    <h3>Latest Questions</h3>
+    <hr>
+    <div class="">
+        {% for q in questions %}
+            <h4 class="row">
+                {% include 'mp.qa.question.row.html.twig' with {question:q} %}
+            </h4>
+            <hr/>
+        {% endfor %}
+        <div class="pagination pagination-centered">
+            {% include 'crud/includes/pagination.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

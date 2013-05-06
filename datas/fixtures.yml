@@ -1,0 +1,158 @@
+#
+# FR : charger les données : php console.php doctrine:load datas\fixtures.yml
+# EN: load fixtures : php console.php doctrine:load datas\fixtures.yml
+#
+fixtures:
+  - entity: Mparaiso\QA\Entity\User
+    name: anonymous
+    fields:
+      nickname:   anonymous
+      email:  anon@anon.com
+      createdAt: {datetime: 2012-11-02 }
+      updatedAt: {datetime: 2012-11-02 }
+
+  - entity: Mparaiso\QA\Entity\User
+    name: fabien
+    fields:
+      nickname: fabpot
+      email:  fabpot@acme.com
+      createdAt: {datetime: 2012-11-02 }
+      updatedAt: {datetime: 2012-11-02 }
+
+  - entity: Mparaiso\QA\Entity\User
+    name: francois
+    fields:
+      nickname: francoisz
+      email:  francoisz@acme.com
+      createdAt: {datetime: 2012-11-02 }
+      updatedAt: {datetime: 2012-11-02 }
+
+  - entity: Mparaiso\QA\Entity\Question
+    name: q1
+    fields:
+      title: What shall I do tonight with my girlfriend?
+      user: %fabien%
+      body:  |
+            We shall meet in front of the Dunkin'Donuts before dinner,
+            and I haven't the slightest idea of what I can do with her.
+            She's not interested in programming, space opera movies nor insects.
+            She's kinda cute, so I really need to find something
+            that will keep her to my side for another evening.
+      createdAt: {datetime: 2012-11-02 }
+      updatedAt: {datetime: 2012-11-02 }
+
+  - entity: Mparaiso\QA\Entity\Question
+    name: q2
+    fields:
+      title: What can I offer to my step mother?
+      user: %anonymous%
+      body:  |
+        My stepmother has everything a stepmother is usually offered
+        (watch, vacuum cleaner, earrings, del.icio.us account).
+        Her birthday comes next week, I am broke, and I know that
+        if I don't offer her something sweet, my girlfriend
+        won't look at me in the eyes for another month.
+      createdAt: {datetime: 2012-11-02 }
+      updatedAt: {datetime: 2012-11-02 }
+
+  - entity: Mparaiso\QA\Entity\Question
+    name: q3
+    fields:
+      title: How can I generate traffic to my blog?
+      user: %francois%
+      body:  |
+        I have a very swell blog that talks
+        about my class and mates and pets and favorite movies.
+      createdAt: {datetime: 2012-11-02 }
+      updatedAt: {datetime: 2012-11-02 }
+
+  - entity:   Mparaiso\QA\Entity\Interest
+    fields:
+      user: %fabien%
+      question: %q1%
+      createdAt: {datetime: 2012-11-02 }
+
+
+  - entity:  Mparaiso\QA\Entity\Interest
+    fields:
+      user: %francois%
+      question: %q1%
+      createdAt: {datetime: 2012-11-02 }
+
+
+  - entity:  Mparaiso\QA\Entity\Interest
+    fields:
+      user: %francois%
+      question: %q2%
+      createdAt: {datetime: 2012-11-02 }
+
+  - entity:  Mparaiso\QA\Entity\Interest
+    fields:
+      user: %fabien%
+      question: %q2%
+      createdAt: {datetime: 2012-11-02 }
+
+
+  - entity: Mparaiso\QA\Entity\Answer
+    name : a1_q1
+    fields:
+      question: %q1%
+      user:     %francois%
+      body:        |
+        You can try to read her poetry. Chicks love that kind of things.
+      createdAt: {datetime: 2013-04-10 }
+      updatedAt: {datetime: 2013-04-10 }
+
+
+  - entity: Mparaiso\QA\Entity\Answer
+    name: a2_q1
+    fields:
+      question: %q1%
+      user:     %fabien%
+      body:        |
+        Don't bring her to a donuts shop. Ever. Girls don't like to be
+        seen eating with their fingers - although it's nice.
+      createdAt: {datetime: 2013-04-10 }
+      updatedAt: {datetime: 2013-04-10 }
+
+
+  - entity: Mparaiso\QA\Entity\Answer
+    name: a3_q2
+    fields:
+      question: %q2%
+      user:     %fabien%
+      body:        |
+        The answer is in the question: buy her a step, so she can
+        get some exercise and be grateful for the weight she will
+        lose.
+      createdAt: {datetime: 2013-04-10 }
+      updatedAt: {datetime: 2013-04-10 }
+
+  - entity: Mparaiso\QA\Entity\Answer
+    name: a4_q3
+    fields:
+      question: %q3%
+      user:     %fabien%
+      body:        |
+        Build it with symfony - and people will love it.
+      createdAt: {datetime: 2013-04-10 }
+      updatedAt: {datetime: 2013-04-10 }
+
+  - entity: Mparaiso\QA\Entity\Relevancy
+    name: rel1
+    fields:
+      answer: %a1_q1%
+      user:   %fabien%
+      score:     -1
+      createdAt: {datetime: 2013-04-10 }
+
+
+  - entity: Mparaiso\QA\Entity\Relevancy
+    name: rel2
+    fields:
+      answer: %a2_q1%
+      user: %francois%
+      score:     1
+      createdAt: {datetime: 2013-04-10 }
+
+
